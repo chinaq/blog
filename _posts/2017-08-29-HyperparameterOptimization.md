@@ -12,7 +12,7 @@ author:            Qiang
 - 郑尹杰：[Udacity-DLND-从第一个项目谈BP算法的超参数调整](https://zhuanlan.zhihu.com/p/28847218
 )
 - [使用Hyperopt自动选择超参数](https://mp.weixin.qq.com/s/-n-5Cp_hgkvdmsHGWEIpWw)
-- 手动太累了，让程序继续尝试参数吧
+- 手动调参太累，让程序自己尝试
 
 ## 针对 DLND p2 图片分类
 
