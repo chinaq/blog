@@ -80,12 +80,12 @@ author:            Qiang
 #### 损失函数
 - loss 体现出了 learning rate 的大小
 - learning rate: the most important hyperpara `*****`
-- ![](img/loss_and_learning_rate.png)
+- ![](http://ac-kYXueNLw.clouddn.com/93bc7d1fbda69991.png)
 
 #### 训练集和验证集准确率
 - 差距过大：过拟合，增大正则化强度（更强的L2权重惩罚，更多的随机失活等）或收集更多的数据
 - 差距过小：模型容量还不够大，应该通过增加参数数量让模型容量更大些
-- ![](img/accuracy.jpg)
+- ![](http://ac-kYXueNLw.clouddn.com/70146773a1dddb96.jpg)
 
 #### 权重更新比例
 - 对每个参数集的更新比例进行单独的计算和跟踪。
@@ -100,7 +100,7 @@ author:            Qiang
 ##### 第一层可视化
 - 左图中的特征充满了噪音，这暗示了网络可能出现了问题：网络没有收敛，学习率设置不恰当，正则化惩罚的权重过低。
 - 右图的特征不错，平滑，干净而且种类繁多，说明训练过程进行良好。
-- ![](img/first_layer.png)
+- ![](http://ac-kYXueNLw.clouddn.com/5a010d1fd053101f.png)
 
 ### 超参数调优
 - 最常用的设置有：
@@ -113,7 +113,7 @@ author:            Qiang
     - 在对数尺度上进行超参数搜索。例如，一个典型的学习率应该看起来是这样：learning_rate = 10 ** uniform(-6, 1)
     - 但是有一些参数（比如随机失活）还是在原始尺度上进行搜索（例如：dropout=uniform(0,1)）
 - 随机搜索优于网格搜索
-    - ![](img/radom_search.png)
+    - ![](http://ac-kYXueNLw.clouddn.com/233053800c3158ad.png)
 - 对于边界上的最优值要小心
     - 假设我们使用learning_rate = 10 ** uniform(-6,1)来进行搜索。一旦我们得到一个比较好的值，一定要确认你的值不是出于这个范围的边界上，不然你可能错过更好的其他搜索范围
 - 从粗到细地分阶段搜索
