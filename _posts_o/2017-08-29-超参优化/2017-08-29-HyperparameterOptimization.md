@@ -46,7 +46,7 @@ author:            Qiang
 - stimulate function type(relu, ...)
 
 ## 思考 - 接着该如何提高
-- cs231n 最重要的是 learning rate
+- cs231n 最重要的是 learning rate（依然没有大提高）
 - cs231n 二次选取最优
 - 读论文 Who is the best in CIFAR-10 ?
 
