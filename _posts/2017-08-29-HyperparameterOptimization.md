@@ -8,6 +8,7 @@ category:          Tech
 author:            Qiang  
 
 ---
+
 ## 缘起
 - 郑尹杰：[Udacity-DLND-从第一个项目谈BP算法的超参数调整](https://zhuanlan.zhihu.com/p/28847218
 )
