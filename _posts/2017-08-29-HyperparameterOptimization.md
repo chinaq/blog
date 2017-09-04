@@ -15,6 +15,8 @@ author:            Qiang
 - [使用Hyperopt自动选择超参数](https://mp.weixin.qq.com/s/-n-5Cp_hgkvdmsHGWEIpWw)
 - 手动调参太累，让程序自己尝试
 
+
+
 ## 针对 DLND p2 图片分类
 
 ### 搜索的参数
@@ -24,12 +26,14 @@ author:            Qiang
 - full layer (1, 2, 3)
 - full thick (32, 256)
 - keep prob (0.3-0.9)
+- 追加 learning rate (0.001-0.00001)
 
 ### 尝试的动作
 - 手动设定 layers, thicks
 - 随机选取 thicks
 - 随机选取 layers, thicks
 - 随机选取 layers，固定2倍 thicks
+- 追加 随机选取 learning rate (以为最重要，结果无明显提升)
 
 ### 结果
 - 基本都保持在 68-72
@@ -37,7 +41,6 @@ author:            Qiang
 - 优点：自动选参保证了识别率不会过低
 
 ### 还有哪些参数没有尝试
-- learning rate (`*****` most important hyperpara)
 - learning rate delay policy
 - Batch Normalization type
 - Pooling type
@@ -45,8 +48,9 @@ author:            Qiang
 - conv striders size
 - stimulate function type(relu, ...)
 
+
+
 ## 思考 - 接着该如何提高
-- cs231n 最重要的是 learning rate（依然没有大提高）
 - cs231n 二次选取最优
 - 读论文 Who is the best in CIFAR-10 ?
 
@@ -71,6 +75,7 @@ author:            Qiang
     - 模型集成
 - 总结
 - 拓展引用
+
 
 
 ## cs231n 神经网络笔记3 泛读
