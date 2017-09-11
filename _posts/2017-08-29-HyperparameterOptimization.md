@@ -51,7 +51,7 @@ author:            Qiang
 
 
 ## 思考 - 接着该如何提高
-- 初始化 weights，标准偏差采用 1/√n ，其中 n 为某一层 weights 单位数 
+- 初始化 weights，标准偏差采用 1/√n ，其中 n 为某一层输入单元数(input units) 
 - cs231n 二次选取最优
 - 读论文 Who is the best in CIFAR-10 ?
 
