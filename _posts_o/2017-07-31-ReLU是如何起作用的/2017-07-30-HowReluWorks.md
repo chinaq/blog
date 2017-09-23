@@ -77,7 +77,8 @@ author:            Qiang
 
 
 ## 参考文章：
-- bilibili上关于线性代数在几何空间中的表述，但是我忘了这个系列视频叫什么了
+- bilibili上关于线性代数在几何空间中的表述（3Blue1Brown）
+    - [九浅一深，带你解锁神经网络的数学姿势](https://mp.weixin.qq.com/s/YsHBk2m8eQRY2awsxNg2cQ)
 - [《Delving Deep into Rectifiers: Surpassing Human-Level Performance on ImageNet Classification》阅读笔记与实现](https://github.com/happynear/gitbook/blob/master/delving_deep_into_rectifiers_surpassing_human-leve.md)
 - [为什么使用 ReLU](http://shuokay.com/2016/10/01/why-relu-work/)
 
