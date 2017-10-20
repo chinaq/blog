@@ -14,6 +14,7 @@ from leancloud import File
 # Qiang 
 import json
 import glob
+import io
 
 # TinyPng API key (link: https://tinypng.com/developers)
 TINY_API_KEY = "set in main"
@@ -53,11 +54,15 @@ def compress(source, target):
 def upload(file_path):
     print(file_path)
     img_name = path.split(file_path)[1]
+    # with open(file_path, 'rb') as f:
     with open(file_path, 'rb') as f:
         img_file = read_full_file(f) # Qiang
-        up_file = File(img_name, buffer(img_file))
+        # up_file = File(img_name, buffer(img_file))
+        # up_file = File(img_name, memoryview(img_file))
+        up_file = File(img_name, io.BytesIO(img_file))
         up_file.save()
-        img_url = up_file.url    
+        img_url = up_file.url
+        # print("img_url: " + img_url)
         return img_url
 
 
@@ -82,7 +87,10 @@ def connect_db(path):
 
 
 def write_db(conn, img_hash, img_url):
-    conn.execute("INSERT INTO ImageInfo (hash, url) VALUES ('%s','%s')" % (img_hash, img_url))
+    print('write url: ' + img_url)
+    # print('write url => %s' % (img_url))
+    # conn.execute("INSERT INTO ImageInfo (hash, url) VALUES ('%s','%s')" % (img_hash, img_url))
+    conn.execute("INSERT INTO ImageInfo (hash, url) VALUES (?, ?)", (img_hash, img_url))
     conn.commit()
 
 
@@ -133,7 +141,8 @@ class Handler:
                     img_sp = path.split(image)
                     compressed_img = path.join(img_sp[0], 'cp_' + img_sp[1])
                     size_percent = compress(image, compressed_img)
-                    image_url = upload(compressed_img).encode('utf-8')
+                    # image_url = upload(compressed_img).encode('utf-8')
+                    image_url = upload(compressed_img)
                     write_db(db, img_hash, image_url)
                     print('[%s] => %s , size ⬇ %.2f%%' % (image, image_url, size_percent))
                     os.remove(compressed_img) # delete copy img, Qiang
@@ -182,8 +191,10 @@ def set_keys(script):
 
 # for full read file on Windows, Qiang
 def read_full_file(file):
-	data = ''
+	# data = ''
+	data = b''
 	while True:
+		# s = file.read()
 		s = file.read()
 		if len(s) == 0:
 			return data
