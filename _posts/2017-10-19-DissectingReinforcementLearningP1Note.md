@@ -1,7 +1,7 @@
 ---
 
 layout:            post  
-title:             "Dissecting Reinforcement Learning-Part.1 笔记"  
+title:             "Dissecting Reinforcement Learning-P1 Note"  
 date:              2017-10-19 18:25:00 +0300  
 tags:              ML
 category:          Tech  
