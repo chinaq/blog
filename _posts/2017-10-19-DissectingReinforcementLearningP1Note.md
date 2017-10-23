@@ -400,3 +400,6 @@ if __name__ == "__main__":
 
 # 2. 参考
 - [Dissecting Reinforcement Learning-Part.1](https://mpatacchiola.github.io/blog/2016/12/09/dissecting-reinforcement-learning.html)
+- others
+    - [什么是强化学习？](http://geniferology.blogspot.com/2015/04/what-is-reinforcement-learning.html)
+    - [REINFORCEMENT LEARNING PART 1: Q-LEARNING AND EXPLORATION](https://studywolf.wordpress.com/2012/11/25/reinforcement-learning-q-learning-and-exploration/)
