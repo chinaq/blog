@@ -43,7 +43,7 @@ def get_file_size(file_path):
 
 # Compress image by TinyPng (https://tinypng.com)
 def compress(source, target):
-    # print "compressing image %s, save to %s" % (source, target)
+    print("compressing image %s, save to %s" % (source, target))
     data = tinify.from_file(source)
     data.to_file(target)
     scale = get_file_size(target) / get_file_size(source)
@@ -54,11 +54,9 @@ def compress(source, target):
 def upload(file_path):
     print(file_path)
     img_name = path.split(file_path)[1]
-    # with open(file_path, 'rb') as f:
+    # print("img_name: " + img_name)
     with open(file_path, 'rb') as f:
         img_file = read_full_file(f) # Qiang
-        # up_file = File(img_name, buffer(img_file))
-        # up_file = File(img_name, memoryview(img_file))
         up_file = File(img_name, io.BytesIO(img_file))
         up_file.save()
         img_url = up_file.url
@@ -139,6 +137,7 @@ class Handler:
                 else:
                     # compress & upload
                     img_sp = path.split(image)
+                    print("img_to_press: " + img_sp[1])
                     compressed_img = path.join(img_sp[0], 'cp_' + img_sp[1])
                     size_percent = compress(image, compressed_img)
                     # image_url = upload(compressed_img).encode('utf-8')
@@ -191,14 +190,14 @@ def set_keys(script):
 
 # for full read file on Windows, Qiang
 def read_full_file(file):
-	# data = ''
-	data = b''
-	while True:
-		# s = file.read()
-		s = file.read()
-		if len(s) == 0:
-			return data
-		data = data + s
+    # data = ''
+    data = b''
+    while True:
+        # s = file.read()
+        s = file.read()
+        if len(s) == 0:
+            return data
+        data = data + s
 
 
 # find md, Qiang
