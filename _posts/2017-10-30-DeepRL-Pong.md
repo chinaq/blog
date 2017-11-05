@@ -210,7 +210,7 @@ while True:
     if running_reward is None:
       running_reward = reward_sum
     else:
-      running_reward * 0.99 + reward_sum * 0.01
+      running_reward = running_reward * 0.99 + reward_sum * 0.01
     print 'resetting env. episode reward total was %f. running mean: %f'\
       % (reward_sum, running_reward)
     if episode_number % 100 == 0: pickle.dump(model, open('save.p', 'wb'))
