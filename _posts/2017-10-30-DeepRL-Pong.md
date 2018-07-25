@@ -10,21 +10,21 @@ author:            Qiang
 
 <!-- TOC -->
 
-- [1. Pong from pixels（基于像素的乒乓）](#1-pong-from-pixels基于像素的乒乓)
-    - [1.1. Policy network （策略网络）](#11-policy-network-策略网络)
-    - [1.2. It sounds kind of impossible.（不现实?）](#12-it-sounds-kind-of-impossible不现实)
-    - [1.3. Supervised Learning.（监督学习）](#13-supervised-learning监督学习)
-    - [1.4. Policy Gradients.（策略梯度）](#14-policy-gradients策略梯度)
-    - [1.5. Training protocol. （训练准则）](#15-training-protocol-训练准则)
-    - [1.6. alternative view. （另一种视角）](#16-alternative-view-另一种视角)
-    - [1.7. More general advantage functions.(回报)](#17-more-general-advantage-functions回报)
-    - [1.8. Deriving Policy Gradients.（策略梯度推导）](#18-deriving-policy-gradients策略梯度推导)
-    - [1.9. Learning.（真正的学习代码）](#19-learning真正的学习代码)
-    - [1.10. Learned weights. （权重都学了什么）](#110-learned-weights-权重都学了什么)
-- [2. What isn't happening （发生了什么）](#2-what-isnt-happening-发生了什么)
-- [3. Non-differentiable computation in Neural Networks （不可微计算)](#3-non-differentiable-computation-in-neural-networks-不可微计算)
-- [4. Conclustions （结论）](#4-conclustions-结论)
-- [5. 参考](#5-参考)
+- [1. Pong from pixels（基于像素的乒乓）](#1-pong-from-pixels%EF%BC%88%E5%9F%BA%E4%BA%8E%E5%83%8F%E7%B4%A0%E7%9A%84%E4%B9%92%E4%B9%93%EF%BC%89)
+  - [1.1. Policy network （策略网络）](#11-policy-network-%EF%BC%88%E7%AD%96%E7%95%A5%E7%BD%91%E7%BB%9C%EF%BC%89)
+  - [1.2. It sounds kind of impossible.（不现实?）](#12-it-sounds-kind-of-impossible%EF%BC%88%E4%B8%8D%E7%8E%B0%E5%AE%9E%EF%BC%89)
+  - [1.3. Supervised Learning.（监督学习）](#13-supervised-learning%EF%BC%88%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%EF%BC%89)
+  - [1.4. Policy Gradients.（策略梯度）](#14-policy-gradients%EF%BC%88%E7%AD%96%E7%95%A5%E6%A2%AF%E5%BA%A6%EF%BC%89)
+  - [1.5. Training protocol. （训练准则）](#15-training-protocol-%EF%BC%88%E8%AE%AD%E7%BB%83%E5%87%86%E5%88%99%EF%BC%89)
+  - [1.6. alternative view. （另一种视角）](#16-alternative-view-%EF%BC%88%E5%8F%A6%E4%B8%80%E7%A7%8D%E8%A7%86%E8%A7%92%EF%BC%89)
+  - [1.7. More general advantage functions.(回报)](#17-more-general-advantage-functions%E5%9B%9E%E6%8A%A5)
+  - [1.8. Deriving Policy Gradients.（策略梯度推导）](#18-deriving-policy-gradients%EF%BC%88%E7%AD%96%E7%95%A5%E6%A2%AF%E5%BA%A6%E6%8E%A8%E5%AF%BC%EF%BC%89)
+  - [1.9. Learning.（真正的学习代码）](#19-learning%EF%BC%88%E7%9C%9F%E6%AD%A3%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%BB%A3%E7%A0%81%EF%BC%89)
+  - [1.10. Learned weights. （权重都学了什么）](#110-learned-weights-%EF%BC%88%E6%9D%83%E9%87%8D%E9%83%BD%E5%AD%A6%E4%BA%86%E4%BB%80%E4%B9%88%EF%BC%89)
+- [2. What isn't happening （发生了什么）](#2-what-isnt-happening-%EF%BC%88%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88%EF%BC%89)
+- [3. Non-differentiable computation in Neural Networks （不可微计算)](#3-non-differentiable-computation-in-neural-networks-%EF%BC%88%E4%B8%8D%E5%8F%AF%E5%BE%AE%E8%AE%A1%E7%AE%97)
+- [4. Conclustions （结论）](#4-conclustions-%EF%BC%88%E7%BB%93%E8%AE%BA%EF%BC%89)
+- [5. 参考](#5-%E5%8F%82%E8%80%83)
 
 <!-- /TOC -->
 
